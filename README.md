@@ -1,4 +1,4 @@
-# generator-twig-component-library [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
+# generator-twig-component-library [![NPM version][npm-image]][npm-url]
 > Creates a new Twig Component Library
 
 ## Installation
