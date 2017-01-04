@@ -1,0 +1,7 @@
+{% macro component(type, data, base) %}
+  {% set parts = type|split('/') %}
+  {% if base %}
+    {% set base = base ~ "/" %}
+  {% endif %}
+  {% include base ~ "components/" ~ type ~ "/" ~ parts[parts|length - 1] ~ ".twig" with data only %}
+{% endmacro %}

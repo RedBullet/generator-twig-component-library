@@ -1,0 +1,10 @@
+{
+  "title": "<%= componentName %>",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    }
+  },
+  "required": ["title"]
+}
