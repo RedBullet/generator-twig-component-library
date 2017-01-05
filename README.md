@@ -16,7 +16,7 @@ Then generate your new project:
 yo twig-component-library
 ```
 
-## Getting To Know Yeoman
+## Find out more about Yeoman
 
  * Yeoman has a heart of gold.
  * Yeoman is a person with feelings and opinions, but is very easy to work with.
