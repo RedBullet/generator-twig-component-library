@@ -48,34 +48,29 @@ module.exports = Generator.extend({
       author: this.props.author
     };
 
-    this.fs.copyTpl(
+    this.fs.copy(
       this.templatePath('app/babelrc'),
-      this.destinationPath('.babelrc'),
-      props
+      this.destinationPath('.babelrc')
     );
 
-    this.fs.copyTpl(
+    this.fs.copy(
       this.templatePath('app/editorconfig'),
-      this.destinationPath('.editorconfig'),
-      props
+      this.destinationPath('.editorconfig')
     );
 
-    this.fs.copyTpl(
+    this.fs.copy(
       this.templatePath('app/eslintrc.json'),
-      this.destinationPath('.eslintrc.json'),
-      props
+      this.destinationPath('.eslintrc.json')
     );
 
-    this.fs.copyTpl(
+    this.fs.copy(
       this.templatePath('app/gitignore'),
-      this.destinationPath('.gitignore'),
-      props
+      this.destinationPath('.gitignore')
     );
 
-    this.fs.copyTpl(
+    this.fs.copy(
       this.templatePath('app/npmignore'),
-      this.destinationPath('.npmignore'),
-      props
+      this.destinationPath('.npmignore')
     );
 
     this.fs.copyTpl(
@@ -90,14 +85,13 @@ module.exports = Generator.extend({
       props
     );
 
-    this.fs.copyTpl(
+    this.fs.copy(
       this.templatePath('app/sass-lint.yml'),
-      this.destinationPath('.sass-lint.yml'),
-      props
+      this.destinationPath('.sass-lint.yml')
     );
 
     this.fs.copyTpl(
-      this.templatePath('app/gulpfile.babel.js/**/*'),
+      this.templatePath('app/gulpfile.babel.js'),
       this.destinationPath('gulpfile.babel.js/'),
       props
     );

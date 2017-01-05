@@ -7,11 +7,12 @@ var mocha = require('gulp-mocha');
 var istanbul = require('gulp-istanbul');
 var nsp = require('gulp-nsp');
 var plumber = require('gulp-plumber');
+var del = require('del');
 
 gulp.task('static', function () {
-  return gulp.src('**/*.js')
+  return gulp.src(['**/*.js', '!generators/**/templates/**/*.js', '!test/temp/**/*.js'])
     .pipe(excludeGitignore())
-    .pipe(eslint())
+    .pipe(eslint({ configFile: '.eslintrc.json' }))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
@@ -20,8 +21,8 @@ gulp.task('nsp', function (cb) {
   nsp({package: path.resolve('package.json')}, cb);
 });
 
-gulp.task('pre-test', function () {
-  return gulp.src('generators/**/*.js')
+gulp.task('pre-test', ['test-clean'], function () {
+  return gulp.src('generators/*.js')
     .pipe(excludeGitignore())
     .pipe(istanbul({
       includeUntested: true
@@ -29,10 +30,12 @@ gulp.task('pre-test', function () {
     .pipe(istanbul.hookRequire());
 });
 
+gulp.task('test-clean', del.bind(null, 'test/.tmp'));
+
 gulp.task('test', ['pre-test'], function (cb) {
   var mochaErr;
 
-  gulp.src('test/**/*.js')
+  gulp.src(['test/**/*.js', '!test/temp/**/*.js'])
     .pipe(plumber())
     .pipe(mocha({reporter: 'spec'}))
     .on('error', function (err) {
@@ -45,7 +48,7 @@ gulp.task('test', ['pre-test'], function (cb) {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['generators/**/*.js', 'test/**'], ['test']);
+  gulp.watch(['generators/*.js', 'test/**'], ['test']);
 });
 
 gulp.task('prepublish', ['nsp']);
