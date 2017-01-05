@@ -5,7 +5,6 @@ var helpers = require('yeoman-test');
 
 describe('generator-twig-component-library:app', function () {
   before(function () {
-    var self = this;
     var testPath = path.join(__dirname, '.tmp');
 
     this.prompts = {
@@ -15,7 +14,7 @@ describe('generator-twig-component-library:app', function () {
 
     return helpers.run(path.join(__dirname, '../generators/app'))
       .inDir(testPath)
-      .withPrompts(self.prompts)
+      .withPrompts(this.prompts)
       .toPromise();
   });
 
