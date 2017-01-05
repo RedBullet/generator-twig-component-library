@@ -50,7 +50,7 @@ describe('generator-twig-component-library:app', function () {
       '.npmignore',
       '.sass-lint.yml',
       'package.json',
-      'README.md',
+      'README.md'
     ]);
   });
 
