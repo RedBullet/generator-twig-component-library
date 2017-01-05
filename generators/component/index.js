@@ -45,7 +45,7 @@ module.exports = Generator.extend({
   },
 
   writing: function () {
-    var path = paths.components + '/' + this.props.type + 's/' + this.props.name;
+    var path = paths.components + '/' + this.props.type + '/' + this.props.name;
     var props = {
       componentName: this.props.name,
       description: this.props.description,

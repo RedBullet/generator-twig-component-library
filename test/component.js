@@ -9,11 +9,11 @@ describe('generator-twig-component-library:component', function () {
 
     this.prompts = {
       name: 'button',
-      type: 'atom',
+      type: 'atoms',
       description: 'A button component'
     };
 
-    this.componentPath = 'src/components/' + this.prompts.type + 's/' + this.prompts.name;
+    this.componentPath = 'src/components/' + this.prompts.type + '/' + this.prompts.name;
 
     return helpers.run(path.join(__dirname, '../generators/component'))
       .inDir(testPath)
