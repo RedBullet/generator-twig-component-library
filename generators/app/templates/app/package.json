@@ -54,6 +54,6 @@
     "node": ">=6.3.0"
   },
   "dependencies": {
-    "twig-component-library-docs": "^0.0.6"
+    "twig-component-library-docs": "^0.0.7"
   }
 }
